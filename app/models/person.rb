@@ -8,6 +8,9 @@ class Person < ApplicationRecord
   validates :national_id, uniqueness: true
   validate :cpf_or_cnpj
 
+  scope :actives, -> { where(active: true) }
+  scope :inactives, -> { where(active: false) }
+
   def update_balance
     update! balance: total_payments - total_debts
   end
