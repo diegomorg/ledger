@@ -25,5 +25,3 @@ module Association
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
-
-WillPaginate.per_page = 15
