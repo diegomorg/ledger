@@ -86,3 +86,5 @@ group :test do
 end
 
 gem "letter_opener_web", "~> 3.0"
+
+gem "sidekiq", "~> 7.2"
