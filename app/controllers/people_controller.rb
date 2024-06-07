@@ -15,7 +15,7 @@ class PeopleController < ApplicationController
       @active = true
     end
 
-    @people = Person.where(active: @active).paginate(
+    @people = Person.includes(:user).where(active: @active).paginate(
       page: params[:page]
     )
   end
