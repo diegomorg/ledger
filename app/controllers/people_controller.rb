@@ -4,17 +4,7 @@ class PeopleController < ApplicationController
 
   # GET /people or /people.json
   def index
-    # TODO: ugly code
-    if !params[:active].nil?
-      if params[:active] == 'true'
-        @active = true
-      else
-        @active = false
-      end
-    else
-      @active = true
-    end
-
+    @active = !params[:active].nil? && params[:active] == 'true'
     @people = Person.includes(:user).where(active: @active).paginate(
       page: params[:page]
     )
